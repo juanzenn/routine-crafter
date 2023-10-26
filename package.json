@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:push": "dotenv -e .env.local -- prisma db push"
   },
   "dependencies": {
+    "@epic-web/remember": "^1.0.2",
+    "@prisma/client": "^5.5.2",
+    "chalk": "^5.3.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.289.0",
@@ -23,9 +27,11 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10",
+    "dotenv-cli": "^7.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.0",
     "postcss": "^8",
+    "prisma": "^5.5.2",
     "tailwindcss": "^3",
     "typescript": "^5"
   }
