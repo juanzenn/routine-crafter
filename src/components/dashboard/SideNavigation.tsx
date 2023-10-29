@@ -26,13 +26,13 @@ export default function SideNavigation() {
       <section className="w-full">
         <Link
           href="/dashboard"
-          title="FitPal - Dashboard"
+          title="Routine Crafter - Dashboard"
           className="text-slate-900 hover:text-slate-800 flex items-center gap-2 w-fit"
         >
           <figure className="w-fit h-fit p-1 bg-blue-600 rounded-full text-white">
             <LandPlot className="w-4 h-4" />
           </figure>
-          <strong className="text-2xl font-semibold">FitPal</strong>
+          <strong className="text-2xl font-semibold">Routine Crafter</strong>
         </Link>
 
         <nav className="flex flex-col gap-2 mt-12 w-full">

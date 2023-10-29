@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const metadata: Metadata = {
-  title: "FitPal - Dashboard",
+  title: "Routine Crafter - Dashboard",
 };
 
 export default function layout({ children }: Props) {

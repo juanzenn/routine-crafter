@@ -16,7 +16,7 @@ export default async function Home() {
         </figure>
 
         <h1 className="text-primary text-4xl font-bold mb-4">
-          FitPal - Your Ultimate Weightlifting Companion
+          Routine Crafter - Your Ultimate Weightlifting Companion
         </h1>
         <p className="text-primary/70 text-lg mb-8">
           Effortlessly Create and Manage Exercises and Routines for Optimal

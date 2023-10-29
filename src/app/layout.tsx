@@ -9,7 +9,7 @@ export const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "FitPal",
+  title: "Routine Crafter",
   description: "Keep track of your fitness goals and progress.",
 };
 

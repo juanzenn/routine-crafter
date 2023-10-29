@@ -6,7 +6,7 @@ export default async function DashboardPage() {
     <main>
       <Headline
         title="Welcome back!"
-        subtitle="Here is a resume of your FitPal."
+        subtitle="Here is a resume of your Routine Crafter."
       />
 
       <section className="grid grid-cols-3 gap-6">

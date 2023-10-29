@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "FitPal - Routines",
+  title: "Routine Crafter - Routines",
 };
 
 export default function RoutinesPage() {
