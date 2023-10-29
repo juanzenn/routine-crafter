@@ -9,7 +9,7 @@ export const authConfig: NextAuthConfig = {
 
       if (isOnDashboard) {
         if (isLoggedIn) return true;
-        return false;
+        return Response.redirect(new URL("/login", nextUrl));
       } else if (isLoggedIn) {
         return Response.redirect(new URL("/dashboard", nextUrl));
       }
