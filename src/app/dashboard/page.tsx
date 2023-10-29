@@ -1,12 +1,13 @@
+import Headline from "@/components/dashboard/Headline";
 import React from "react";
 
 export default async function DashboardPage() {
   return (
     <main>
-      <header>
-        <h1 className="font-semibold text-3xl text-slate-900">Welcome back!</h1>
-        <p className="text-slate-600 mt-2">Here is a resume of your FitPal.</p>
-      </header>
+      <Headline
+        title="Welcome back!"
+        subtitle="Here is a resume of your FitPal."
+      />
 
       <section className="grid grid-cols-3 gap-6">
         <Card title="Your routines">

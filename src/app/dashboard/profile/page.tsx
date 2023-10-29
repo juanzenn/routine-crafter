@@ -1,5 +1,15 @@
+import Headline from "@/components/dashboard/Headline";
+import { Metadata } from "next";
 import React from "react";
 
+export const metadata: Metadata = {
+  title: "FitPal - Profile",
+};
+
 export default function ProfilePage() {
-  return <div>ProfilePage</div>;
+  return (
+    <main>
+      <Headline title="Profile" />
+    </main>
+  );
 }
