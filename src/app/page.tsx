@@ -1,4 +1,3 @@
-import { db } from "@/lib/db";
 import { buttonVariants } from "@/ui/Button";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,9 +8,9 @@ export default async function Home() {
       <div className="container mx-auto px-4 text-center">
         <figure className="relative mx-auto mb-8 aspect-video max-w-[50%]">
           <Image
+            fill={true}
             src="https://images.unsplash.com/photo-1520948013839-62020f374478"
             alt="Person lifting weights"
-            layout="fill"
             className="shadow-lg rounded-md"
           />
         </figure>
