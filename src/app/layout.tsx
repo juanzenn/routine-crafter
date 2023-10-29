@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-export const fontSans = FontSans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -19,10 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body
-        className={cn("bg-background font-sans antialiased", fontSans.variable)}
-      >
+    <html lang="en" className={inter.variable}>
+      <body className={cn("bg-background antialiased font-[Inter]")}>
         {children}
       </body>
     </html>

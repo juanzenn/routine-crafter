@@ -10,7 +10,7 @@ export default async function Home() {
         <figure className="relative mx-auto flex-1 h-full border-l border-slate-300 shadow-sm">
           <Image
             fill
-            src="https://images.unsplash.com/photo-1606328500899-38351f33df8a?w=1200"
+            src="https://images.unsplash.com/photo-1606328500899-38351f33df8a?w=1980"
             alt="Person lifting weights"
           />
         </figure>

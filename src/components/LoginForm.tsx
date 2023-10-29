@@ -2,22 +2,28 @@
 
 import { authenticate } from "@/lib/actions";
 import { Button } from "@/ui/Button";
-import { CheckCircle, Loader2, Mail } from "lucide-react";
+import { Input } from "@/ui/input";
+import { Label } from "@/ui/label";
+import { CheckCircle, CheckCircle2, Loader2, Mail } from "lucide-react";
 
 import { useFormState, useFormStatus } from "react-dom";
+import Headline from "./dashboard/Headline";
 
 export default function LoginForm() {
   const [status, action] = useFormState(authenticate, undefined);
 
   if (status === "success") {
     return (
-      <main className="p-12 w-fit mx-auto bg-slate-50 rounded-xl shadow mt-6">
-        <h1 className="mb-3 text-2xl font-semibold">
-          <CheckCircle className="inline-block mr-2 text-green-500" />
-          Magic Link sent to your email.
-        </h1>
+      <main className="">
+        <h2 className="mb-3 font-semibold inline-flex items-center">
+          Magic Link sent to your email
+          <CheckCircle2
+            className="inline-block ml-2 text-green-700"
+            size={24}
+          />
+        </h2>
 
-        <p className="text-primary/70 text-lg max-w-md">
+        <p className="text-slate-600">
           Please check your email and click the link to log in. You will be
           redirected to the dashboard.
         </p>
@@ -26,7 +32,7 @@ export default function LoginForm() {
   }
 
   return (
-    <form action={action} className="max-w-lg mx-auto">
+    <form action={action}>
       <Form />
     </form>
   );
@@ -36,19 +42,22 @@ function Form() {
   const { pending } = useFormStatus();
 
   return (
-    <div className="p-12">
-      <h1 className={`mb-3 text-2xl font-semibold`}>Log In to continue</h1>
+    <div>
+      <header>
+        <Headline
+          title="Welcome, lifter!"
+          subtitle="Input your email to login or register to the app. It doesn't require a password!"
+        />
+      </header>
+
+      <figure className="h-[1px] bg-slate-200 mt-2 mb-6" />
+
       <div className="w-full">
-        <div>
-          <label
-            className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-            htmlFor="email"
-          >
-            Email
-          </label>
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
           <div className="relative">
-            <input
-              className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+            <Input
+              className="pl-10"
               id="email"
               type="email"
               name="email"
@@ -61,12 +70,11 @@ function Form() {
       </div>
 
       <Button
-        className="mt-4 w-fit ml-auto flex gap-2 min-w-[100px]"
+        className="mt-4 ml-auto flex gap-2 w-full"
         disabled={pending}
         aria-disabled={pending}
       >
-        Log in
-        {pending ? <Loader2 className="animate-spin w-3" /> : null}
+        Sign In {pending ? <Loader2 className="animate-spin w-3" /> : null}
       </Button>
     </div>
   );
