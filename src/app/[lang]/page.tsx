@@ -1,9 +1,18 @@
+import { getDictionary } from "@/lib/dictionaries";
+import { getCurrentUser } from "@/lib/session";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/ui/Button";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Home() {
+type Props = {
+  params: { lang: "es" | "en" };
+};
+
+export default async function Home({ params: { lang } }: Props) {
+  const dict = await getDictionary(lang);
+  const currentUser = await getCurrentUser();
+
   return (
     <main className="h-full">
       <section className="flex flex-row-reverse h-full">
@@ -29,7 +38,7 @@ export default async function Home() {
               buttonVariants({ size: "lg" }),
               "text-2xl p-6 px-10 w-3/4 mx-auto"
             )}
-            href="/login"
+            href={currentUser ? "/dashboard" : "/login"}
           >
             Get Started
           </Link>
