@@ -1,3 +1,4 @@
+import { PageBaseProps } from "@/lib/definitions";
 import { getDictionary } from "@/lib/dictionaries";
 import { getCurrentUser } from "@/lib/session";
 import { cn } from "@/lib/utils";
@@ -5,12 +6,8 @@ import { buttonVariants } from "@/ui/Button";
 import Image from "next/image";
 import Link from "next/link";
 
-type Props = {
-  params: { lang: "es" | "en" };
-};
-
-export default async function Home({ params: { lang } }: Props) {
-  const dict = await getDictionary(lang);
+export default async function Home({ params: { lang } }: PageBaseProps) {
+  const { homepage } = await getDictionary(lang);
   const currentUser = await getCurrentUser();
 
   return (
@@ -26,11 +23,10 @@ export default async function Home({ params: { lang } }: Props) {
 
         <section className="flex-1 flex flex-col justify-center px-8 lg:px-12 xl:px-24">
           <h1 className="text-slate-900 text-6xl tracking-tight font-bold mb-4">
-            Routine Crafter
+            {homepage.title}
           </h1>
           <p className="text-slate-600 text-xl mb-8 max-w-lg">
-            Your Ultimate Weightlifting Companion. Effortlessly Create and
-            Manage Exercises and Routines for Optimal Weightlifting Progress
+            {homepage.description}
           </p>
 
           <Link
@@ -40,7 +36,7 @@ export default async function Home({ params: { lang } }: Props) {
             )}
             href={currentUser ? "/dashboard" : "/login"}
           >
-            Get Started
+            {homepage.button}
           </Link>
         </section>
       </section>

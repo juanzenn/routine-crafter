@@ -1,3 +1,7 @@
 {
-  "test": "Hola"
+  "homepage": {
+    "title": "Routine Crafter",
+    "description": "Tu mejor compañero de levantamiento de pesas. Crea y administra tus ejercicios y rutinas para un progreso óptimo en tu entrenamiento de fuerza.",
+    "button": "Empieza Ahora"
+  }
 }

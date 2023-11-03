@@ -1,3 +1,7 @@
 {
-  "test": "Hello"
+  "homepage": {
+    "title": "Routine Crafter",
+    "description": "Your Ultimate Weightlifting Companion. Effortlessly Create and Manage Exercises and Routines for Optimal Weightlifting Progress.",
+    "button": "Get Started"
+  }
 }
