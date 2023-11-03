@@ -16,10 +16,10 @@ const LINK = [
 
 export default function SideNavigation() {
   const pathname = usePathname();
-
-  const [open, setOpen] = React.useState(false);
-
-  const isActiveLink = (href: string) => pathname === href;
+  const isActiveLink = (href: string) => {
+    const path = pathname.split("/").slice(2).join("/");
+    return `/${path}` === href;
+  };
 
   return (
     <aside className="h-full flex flex-col justify-between items-start p-4 max-w-sm flex-1">
