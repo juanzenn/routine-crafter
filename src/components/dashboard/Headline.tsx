@@ -9,7 +9,7 @@ export default function Headline({ title, subtitle }: Props) {
   return (
     <header>
       <h1 className="font-semibold text-3xl text-slate-900">{title}</h1>
-      <p className="text-slate-600 mt-2 max-w-xl">{subtitle}</p>
+      <p className="text-slate-600 mt-2 max-w-[50dvw]">{subtitle}</p>
     </header>
   );
 }

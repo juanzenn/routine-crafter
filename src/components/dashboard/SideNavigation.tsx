@@ -17,8 +17,9 @@ const LINK = [
 export default function SideNavigation() {
   const pathname = usePathname();
   const isActiveLink = (href: string) => {
-    const path = pathname.split("/").slice(2).join("/");
-    return `/${path}` === href;
+    let path = "/" + pathname.split("/").slice(2).join("/");
+
+    return path === href || (path.includes(href) && href !== "/dashboard");
   };
 
   return (

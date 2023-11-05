@@ -46,6 +46,9 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+
+  exercises Exercise[]
+  routines  Routine[]
 }
 
 model VerificationToken {
@@ -54,4 +57,92 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model BodyPart {
+  id   String @id @default(cuid())
+  name String
+
+  exercises Exercise[]
+  routines  Routine[]
+}
+
+model Exercise {
+  id              String          @id @default(cuid())
+  bodyPartId      String
+  userId          String
+  configurationId String          @unique
+  name            String
+  difficulty      DifficultyEnum?
+  equipment       EquipmentEnum[]
+
+  user              User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bodyPart          BodyPart              @relation(fields: [bodyPartId], references: [id], onDelete: Cascade)
+  configuration     ExerciseConfiguration @relation(fields: [configurationId], references: [id], onDelete: Cascade)
+  routinesExercises RoutineExercise[]
+}
+
+model Routine {
+  id         String          @id @default(cuid())
+  userId     String
+  isTemplate Boolean         @default(false) // Templates exist for users to create routines from
+  name       String
+  notes      String?
+  difficulty DifficultyEnum?
+  date       DateTime? // Date the routine will be performed. These routines ARE NOT templates
+
+  user      User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  exercises RoutineExercise[]
+  bodyParts BodyPart[]
+}
+
+model RoutineExercise {
+  id              String @id @default(cuid())
+  routineId       String
+  exerciseId      String
+  configurationId String @unique
+
+  routine       Routine               @relation(fields: [routineId], references: [id], onDelete: Cascade)
+  exercise      Exercise              @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  configuration ExerciseConfiguration @relation(fields: [configurationId], references: [id], onDelete: Cascade)
+}
+
+model ExerciseConfiguration {
+  id                String         @id @default(cuid())
+  exerciseId        String?
+  routineExerciseId String?
+  sets              Int            @db.SmallInt
+  reps              Int            @db.SmallInt
+  weight            Int            @db.SmallInt
+  minutesRest       Int            @db.SmallInt
+  secondsRest       Int            @db.SmallInt
+  weightUnit        WeightUnitEnum @default(Pound)
+
+  exercise        Exercise?
+  routineExercise RoutineExercise?
+}
+
+enum DifficultyEnum {
+  Beginner
+  Intermediate
+  Advance
+}
+
+enum EquipmentEnum {
+  NoEquipment
+  Dumbbell
+  Barbell
+  Kettlebell
+  ResistanceBand
+  MedicineBall
+  Treadmill
+  Bench
+  SmithMachine
+  CableMachine
+  WeightMachine
+}
+
+enum WeightUnitEnum {
+  Kilogram
+  Pound
 }
