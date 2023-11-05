@@ -101,6 +101,7 @@ model RoutineExercise {
   routineId       String
   exerciseId      String
   configurationId String @unique
+  order           Int    @db.SmallInt
 
   routine       Routine               @relation(fields: [routineId], references: [id], onDelete: Cascade)
   exercise      Exercise              @relation(fields: [exerciseId], references: [id], onDelete: Cascade)

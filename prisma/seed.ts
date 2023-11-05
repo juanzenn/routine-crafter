@@ -1,22 +1,13 @@
+import { BODY_PARTS_OPTIONS } from "@/lib/constants";
 import { PrismaClient } from "@prisma/client";
 const db = new PrismaClient();
 
-const BODY_PARTS = [
-  "Chest",
-  "Back",
-  "Shoulders",
-  "Biceps",
-  "Triceps",
-  "Core",
-  "Quads",
-  "Hamstrings",
-  "Glutes",
-];
+const BODY_PARTS = BODY_PARTS_OPTIONS;
 
 async function main() {
-  for (const part of BODY_PARTS) {
+  for (const { label, value } of BODY_PARTS) {
     await db.bodyPart.create({
-      data: { name: part },
+      data: { name: label, id: value },
     });
   }
 }

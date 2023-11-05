@@ -22,7 +22,7 @@ export default async function Home({ params: { lang } }: PageBaseProps) {
         </figure>
 
         <section className="flex-1 flex flex-col justify-center px-8 lg:px-12 xl:px-24">
-          <h1 className="text-slate-900 text-6xl tracking-tight font-bold mb-4">
+          <h1 className="text-6xl tracking-tight font-bold mb-4">
             {homepage.title}
           </h1>
           <p className="text-slate-600 text-xl mb-8 max-w-lg">

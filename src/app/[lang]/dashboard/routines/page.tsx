@@ -1,15 +1,20 @@
 import Headline from "@/components/dashboard/Headline";
-import { Metadata } from "next";
+import { buttonVariants } from "@/ui/Button";
+import { Separator } from "@/ui/separator";
+import Link from "next/link";
 import React from "react";
-
-export const metadata: Metadata = {
-  title: "Routine Crafter - Routines",
-};
 
 export default function RoutinesPage() {
   return (
-    <main>
-      <Headline title="Routines" />
-    </main>
+    <>
+      <Headline title="Routines" subtitle="Manage and review your routines." />
+      <Separator className="my-4" />
+
+      <header>
+        <Link href="routines/new" className={buttonVariants()}>
+          Create Routine
+        </Link>
+      </header>
+    </>
   );
 }

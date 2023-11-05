@@ -28,7 +28,7 @@ export default function SideNavigation() {
         <Link
           href="/dashboard"
           title="Routine Crafter - Dashboard"
-          className="text-slate-900 hover:text-slate-800 flex items-center gap-2 w-fit"
+          className="hover:text-slate-800 flex items-center gap-2 w-fit"
         >
           <figure className="w-fit h-fit p-1 bg-blue-600 rounded-full text-white">
             <LandPlot className="w-4 h-4" />
