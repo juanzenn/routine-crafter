@@ -1,5 +1,6 @@
 import { WEIGHT_UNITS_OPTIONS } from "@/lib/constants";
 import { Button } from "@/ui/Button";
+import InputCombobox from "@/ui/InputCombobox";
 import { Input } from "@/ui/input";
 import { Label } from "@/ui/label";
 import {
@@ -7,12 +8,11 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/ui/select";
 import { Separator } from "@/ui/separator";
-import { Cog, Cross, Trash2, X } from "lucide-react";
+import { Cog, X } from "lucide-react";
 import React from "react";
 import { FormType } from "./RoutineForm";
 
@@ -107,14 +107,14 @@ function ExerciseArticle({
   return (
     <article key={provicionalId}>
       <div className="flex items-center">
-        <Input
-          id={`exercise-${provicionalId}`}
-          placeholder={`Bench Press`}
-          name={name}
-          value={name}
-          onChange={(e) =>
-            onChangeExercise("name", e.target.value, provicionalId)
-          }
+        <InputCombobox
+          selectedValue={name}
+          options={["Bench Press", "Squat", "DeadLift"]}
+          placeholder="Exercise name"
+          onSelectOption={(value) => {
+            onChangeExercise("name", value, provicionalId);
+          }}
+          triggerProps={{ className: "w-1/2" }}
         />
 
         <Button
